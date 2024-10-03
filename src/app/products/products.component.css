@@ -1,0 +1,9 @@
+.product-image {
+    height: 100px;
+}
+
+.loader {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+}

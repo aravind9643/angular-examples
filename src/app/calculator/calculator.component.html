@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="card" style="width: 30rem;">
+        <div class="card-header">
+            <h5 class="card-title text-center">Calculator</h5>
+        </div>
+        <div class="card-body">
+            <div class="row text-center">
+                <div class="col-9">
+                    <input type="text" class="form-control calc-input" [(ngModel)]="calcInput"
+                        (input)="watchInput($event)">
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-light" (click)="clearInput()">C</button>
+                </div>
+            </div>
+            <div class="row text-center mt-2">
+                <div class="col-3">
+                    <button class="btn btn-light" (click)="appendToCalculator('1')">1</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-light" (click)="appendToCalculator('2')">2</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-light" (click)="appendToCalculator('3')">3</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-light" (click)="appendToCalculator('+')">+</button>
+                </div>
+            </div>
+            <div class="row text-center mt-2">
+                <div class="col-3">
+                    <button class="btn btn-light" (click)="appendToCalculator('4')">4</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-light" (click)="appendToCalculator('5')">5</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-light" (click)="appendToCalculator('6')">6</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-light" (click)="appendToCalculator('-')">-</button>
+                </div>
+            </div>
+            <div class="row text-center mt-2">
+                <div class="col-3">
+                    <button class="btn btn-light" (click)="appendToCalculator('7')">7</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-light" (click)="appendToCalculator('8')">8</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-light" (click)="appendToCalculator('9')">9</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-light" (click)="appendToCalculator('*')">*</button>
+                </div>
+            </div>
+            <div class="row text-center mt-2">
+                <div class="col-3">
+                    <button class="btn btn-light" (click)="appendToCalculator('.')">.</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-light" (click)="appendToCalculator('0')">0</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-light" (click)="evalute()">=</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-light" (click)="appendToCalculator('/')">/</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

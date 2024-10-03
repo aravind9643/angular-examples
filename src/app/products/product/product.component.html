@@ -1,0 +1,33 @@
+<div class="container mt-4">
+    <div class="card" *ngIf="product.id">
+        <div class="text-center">
+            <img [src]="product.thumbnail" class="card-img-top product-image" alt="product-image">
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{product.title}}</h5>
+            <p class="card-text">{{product.description}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><b>Price:</b> {{product.price | currency: 'INR'}}</li>
+            <li class="list-group-item"><b>Rating:</b> {{product.rating}}</li>
+            <li class="list-group-item"><b>Stock:</b> {{product.stock}}</li>
+        </ul>
+    </div>
+    <div class="card mt-2" *ngIf="product.id">
+        <div class="card-header">
+            Reviews
+        </div>
+        <ul class="list-group list-group-flush">
+            <li *ngFor="let reviewItem of product.reviews" class="list-group-item">
+                <div><b>Name:</b> {{reviewItem.reviewerName}}</div>
+                <div><b>Email:</b> {{reviewItem.reviewerEmail}}</div>
+                <div><b>Rating:</b> {{reviewItem.rating}}</div>
+                <div><b>Date:</b> {{reviewItem.date | date: 'medium'}}</div>
+                <div><b>Comment:</b> {{reviewItem.comment}}</div>
+            </li>
+        </ul>
+    </div>
+    <div class="spinner-border text-primary loader" role="status" *ngIf="!product.id">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>

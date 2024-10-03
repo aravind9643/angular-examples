@@ -1,0 +1,18 @@
+.container {
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.btn-light {
+    height: 60px;
+    width: 60px;
+}
+
+.calc-input {
+    height: 60px;
+}

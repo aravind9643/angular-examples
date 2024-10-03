@@ -1,0 +1,15 @@
+.container {
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.water-mark {
+    color: #aaaaaa;
+    height: 100px;
+    padding: 30px 0;
+}

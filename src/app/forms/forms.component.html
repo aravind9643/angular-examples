@@ -1,0 +1,111 @@
+<div class="container">
+    <!-- <div class="card" style="width: 470px;">
+        <div class="card-body">
+            <h5 class="card-title text-center">Register (Template Driven)</h5>
+            <form #registerForm="ngForm" (ngSubmit)="submit(registerForm)">
+                <input type="text" class="form-control" placeholder="Name" name="name" ngModel required minlength="6"
+                    maxlength="10">
+                <div *ngIf="registerForm.controls['name'].dirty">
+                    <div *ngIf="registerForm.controls['name'].errors && registerForm.controls['name'].errors['required']"
+                        class="text-danger">Name is Required</div>
+                    <div *ngIf="registerForm.controls['name'].errors && (registerForm.controls['name'].errors['minlength'] || registerForm.controls['name'].errors['maxlength'])"
+                        class="text-danger">6-10 length Required</div>
+                </div>
+
+                <input type="text" class="form-control mt-2" placeholder="Email" name="email" ngModel required>
+                <div *ngIf="registerForm.controls['email'].dirty">
+                    <div *ngIf="registerForm.controls['email'].errors && registerForm.controls['email'].errors['required']"
+                        class="text-danger">Email is Required</div>
+                </div>
+
+                <input type="text" class="form-control mt-2" placeholder="Username" name="username" ngModel required>
+                <div *ngIf="registerForm.controls['username'].dirty">
+                    <div *ngIf="registerForm.controls['username'].errors && registerForm.controls['username'].errors['required']"
+                        class="text-danger">Username is Required</div>
+                </div>
+
+                <input type="text" class="form-control mt-2" placeholder="Mobile Number" name="mobile_number" ngModel
+                    required>
+                <div *ngIf="registerForm.controls['mobile_number'].dirty">
+                    <div *ngIf="registerForm.controls['mobile_number'].errors && registerForm.controls['mobile_number'].errors['required']"
+                        class="text-danger">Mobile Number is Required</div>
+                </div>
+
+                <input type="password" class="form-control mt-2" placeholder="Password" name="password" ngModel required
+                    pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+                <div *ngIf="registerForm.controls['password'].dirty">
+                    <div *ngIf="registerForm.controls['password'].errors && registerForm.controls['password'].errors['required']"
+                        class="text-danger">Password is Required</div>
+                    <div *ngIf="registerForm.controls['password'].errors && registerForm.controls['password'].errors['pattern']"
+                        class="text-danger">Password is Invalid</div>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-2" [disabled]="registerForm.invalid">Register</button>
+            </form>
+            <div>Name</div>
+            <div> Touched: {{ registerForm.controls['email'].touched}} </div>
+            <div> Untouched: {{ registerForm.controls['email'].untouched}} </div>
+            <div> Dirty: {{ registerForm.controls['email'].dirty}} </div>
+            <div> Valid: {{ registerForm.controls['email'].valid}} </div>
+            <div> Invalid: {{ registerForm.controls['email'].invalid}} </div>
+        </div>
+    </div> -->
+
+    <div class="card" style="width: 470px;">
+        <div class="card-body">
+            <h5 class="card-title text-center">Register (Reactive Forms)</h5>
+            <form [formGroup]="registerForm" (ngSubmit)="submitReactiveForm()">
+                <input type="text" class="form-control" placeholder="Name" name="name" formControlName="name">
+                <div *ngIf="registerForm.controls['name'].dirty">
+                    <div *ngIf="registerForm.controls['name'].errors && registerForm.controls['name'].errors['required']"
+                        class="text-danger">Name is Required</div>
+                    <div *ngIf="registerForm.controls['name'].errors && (registerForm.controls['name'].errors['minlength'] || registerForm.controls['name'].errors['maxlength'])"
+                        class="text-danger">6-10 length Required</div>
+                </div>
+
+                <input type="text" class="form-control mt-2" placeholder="Email" name="email" formControlName="email">
+                <div *ngIf="registerForm.controls['email'].dirty">
+                    <div *ngIf="registerForm.controls['email'].errors && registerForm.controls['email'].errors['required']"
+                        class="text-danger">Email is Required</div>
+                    <div *ngIf="registerForm.controls['email'].errors && registerForm.controls['email'].errors['email']"
+                        class="text-danger">Email is Invalid</div>
+                </div>
+
+                <input type="text" class="form-control mt-2" placeholder="Username" name="username"
+                    formControlName="username">
+                <div *ngIf="registerForm.controls['username'].dirty">
+                    <div *ngIf="registerForm.controls['username'].errors && registerForm.controls['username'].errors['required']"
+                        class="text-danger">Username is Required</div>
+                    <div *ngIf="registerForm.controls['username'].errors && registerForm.controls['username'].errors['minlength']"
+                        class="text-danger">Username is Invalid</div>
+                </div>
+
+                <input type="text" class="form-control mt-2" placeholder="Mobile Number" name="mobile_number"
+                    formControlName="mobile_number">
+                <div *ngIf="registerForm.controls['mobile_number'].dirty">
+                    <div *ngIf="registerForm.controls['mobile_number'].errors && registerForm.controls['mobile_number'].errors['required']"
+                        class="text-danger">Mobile Number is Required</div>
+                    <div *ngIf="registerForm.controls['mobile_number'].errors && registerForm.controls['mobile_number'].errors['minlength']"
+                        class="text-danger">Mobile Number is Invalid</div>
+                </div>
+
+                <input type="password" class="form-control mt-2" placeholder="Password" name="password"
+                    formControlName="password">
+                <div *ngIf="registerForm.controls['password'].dirty">
+                    <div *ngIf="registerForm.controls['password'].errors && registerForm.controls['password'].errors['required']"
+                        class="text-danger">Password is Required</div>
+                    <div *ngIf="registerForm.controls['password'].errors && registerForm.controls['password'].errors['pattern']"
+                        class="text-danger">Password is Invalid</div>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-2" [disabled]="registerForm.invalid">Register</button>
+            </form>
+            <!-- <div>Name</div>
+            <div> Touched: {{ registerForm.controls['email'].touched}} </div>
+            <div> Untouched: {{ registerForm.controls['email'].untouched}} </div>
+            <div> Dirty: {{ registerForm.controls['email'].dirty}} </div>
+            <div> Valid: {{ registerForm.controls['email'].valid}} </div>
+            <div> Invalid: {{ registerForm.controls['email'].invalid}} </div> -->
+        </div>
+    </div>
+</div>

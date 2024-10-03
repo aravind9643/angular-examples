@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title text-center">Multiplication Table</h5>
+            <div class="row g-3 justify-content-center">
+                <div class="col-auto">
+                    <input type="number" class="form-control" placeholder="Enter Number" [(ngModel)]="number">
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-3" (click)="submit()">Submit</button>
+                </div>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let multiplicationTableItem of multplicationTable">
+                    {{multiplicationTableItem}}</li>
+            </ul>
+        </div>
+    </div>
+</div>

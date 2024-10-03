@@ -1,0 +1,21 @@
+<div class="container mt-4">
+    <div class="list-group">
+        <!-- [routerLink]="['/','product']" [queryParams]="{id: productItem.id}" -->
+        <a *ngFor="let productItem of products" href="javascript:voide(0)" (click)="navigateToProduct(productItem.id)"
+            class="list-group-item list-group-item-action d-flex align-items-center">
+            <div>{{productItem.id}}. </div>
+            <div>
+                <img [src]="productItem.thumbnail" alt="product-image" class="product-image">
+            </div>
+            <div class="mx-2">
+                <b>
+                    {{productItem.title}}
+                </b>
+            </div>
+            <div class="mx-2">{{productItem.price | currency: 'INR'}}</div>
+        </a>
+    </div>
+    <div class="spinner-border text-primary loader" role="status" *ngIf="products.length == 0">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>

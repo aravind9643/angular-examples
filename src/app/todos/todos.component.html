@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title text-center">My Todos</h5>
+            <app-todo-form [buttonName]="btnName" [todoTitle]="todoTitle"
+                (addTodoEmit)="childEmit($event)"></app-todo-form>
+            <table class="table" *ngIf="todos.length > 0">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Completed</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Created At</th>
+                        <th scope="col">Updated At</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let todo of todos; let todoIndex=index">
+                        <th scope="row">{{todoIndex + 1}}</th>
+                        <td>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox"
+                                    (change)="toggleCompleted($event, todoIndex)" [(ngModel)]="todo.completed">
+                                <label class="form-check-label"></label>
+                            </div>
+                        </td>
+                        <td>{{todo.title}}</td>
+                        <td>{{todo.date}}</td>
+                        <td>{{todo.update_date || 'N/A'}}</td>
+                        <td>
+                            <i class="bi bi-pencil cursor-pointer me-2" (click)="editTodo(todoIndex)"></i>
+                            <i class="bi bi-x-lg cursor-pointer" title="Delete" (click)="deleteTodo(todoIndex)"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- <app-todo-form [buttonName]="btnName" [todoTitle]="todoTitle"
+                (addTodoEmit)="childEmit($event)"></app-todo-form>
+            <app-todo-form [buttonName]="btnName" [todoTitle]="todoTitle"
+                (addTodoEmit)="childEmit($event)"></app-todo-form> -->
+            <div *ngIf="todos.length == 0" class="h5 text-center water-mark">No Todos Found</div>
+        </div>
+    </div>
+</div>
